@@ -11,7 +11,7 @@ echo "<pre>";
 //date_default_timezone_set("Europe/London");
 echo "The time is " . date("Y-m-d H:i:s").'   '.   time();
 
-$refreshRate = 600;
+$refreshRate = 2000;
 echo "</pre>";
 header( "refresh:$refreshRate;url= index.php" );
 $currentTime = time();
@@ -227,45 +227,38 @@ foreach ($arrayOfPages as $keyf => $valuef) {
           foreach ($pages as $key) {
             if ($key['name'] == 'The Meme Steal Bot')
           {
-            $pageID = $key["id"];
+
+                		foreach($arrayOutputURLs as $keyo => $valueo)
+                			{
+                			$currentURLtoPost = array_shift($valueo);
+                      $currentURLtimestamp = end($valueo);
+                			$toPost = array(
+                				'url' => $currentURLtoPost,
+                				'published' => 'true'
+                			);
+
+                			$post = $fb->post('/' . $key['id'] . '/photos', $toPost, $key['access_token']);
+                			$post = $post->getGraphNode()->asArray();
+                      echo ("<pre>");
+                      print_r($valuef . '  ');
+                      print_r($currentURLtoPost);
+
+
+                      //print_r ();
+                      echo ("</pre>");
+
+
+
+
+                		// print_r($timeToPost);
+
+
+                	}
+
           }
         }
 
 
-          echo ("<pre>");
-
-          //print_r($pages);
-          echo "the id is". $pageID;
-
-          echo ("</pre>");
-
-    		foreach($arrayOutputURLs as $keyo => $valueo)
-    			{
-    			$currentURLtoPost = array_shift($valueo);
-          $currentURLtimestamp = end($valueo);
-    			$toPost = array(
-    				'url' => $currentURLtoPost
-    				//'published' => 'true'
-    			);
-
-    			$post = $fb->post('/' . $pageID . '/photos', $toPost, $key['access_token']);
-    			$post = $post->getGraphNode()->asArray();
-          echo ("<pre>");
-          print_r($valuef . '  ');
-          print_r($currentURLtoPost);
-
-
-          //print_r ();
-          echo ("</pre>");
-
-
-
-
-    		// print_r($timeToPost);
-
-
-    	}
-//}
 //££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££
 
 }
