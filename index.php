@@ -235,7 +235,7 @@ foreach ($arrayOfPages as $keyf => $valuef) {
           echo ("<pre>");
 
           //print_r($pages);
-          echo "the id is". key($pageID);
+          echo "the id is". $pageID;
 
           echo ("</pre>");
 
