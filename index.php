@@ -226,6 +226,8 @@ foreach ($arrayOfPages as $keyf => $valuef) {
           echo ("<pre>");
 
           print_r($pages);
+          echo "the id is". $pages["id"];
+
           echo ("</pre>");
 
     		foreach($arrayOutputURLs as $keyo => $valueo)
