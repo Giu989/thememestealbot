@@ -221,7 +221,12 @@ foreach ($arrayOfPages as $keyf => $valuef) {
 
           //print_r ($arrayOfURLs);
           //echo ("</pre>");
-          $keyOfMyPage = $myPage;
+          $pages = $fb->get('/me/accounts');
+          $pages = $pages->getGraphEdge()->asArray();
+          echo ("<pre>");
+
+          print_r($pages);
+          echo ("</pre>");
 
     		foreach($arrayOutputURLs as $keyo => $valueo)
     			{
@@ -232,12 +237,11 @@ foreach ($arrayOfPages as $keyf => $valuef) {
     				//'published' => 'true'
     			);
 
-    			$post = $fb->post('/thememestealbot' . '/photos', $toPost, $key['access_token']);
-    			$post = $post->getGraphNode()->asArray();
+    			//$post = $fb->post('/thememestealbot' . '/photos', $toPost, $key['access_token']);
+    			//$post = $post->getGraphNode()->asArray();
           echo ("<pre>");
           print_r($valuef . '  ');
           print_r($currentURLtoPost);
-          print_r($myPage);
 
 
           //print_r ();
