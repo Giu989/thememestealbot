@@ -223,10 +223,19 @@ foreach ($arrayOfPages as $keyf => $valuef) {
           //echo ("</pre>");
           $pages = $fb->get('/me/accounts');
           $pages = $pages->getGraphEdge()->asArray();
+
+          foreach ($pages as $key) {
+            if ($key['name'] == 'The Meme Steal Bot')
+          {
+            $pageID = $key["id"];
+          }
+        }
+
+
           echo ("<pre>");
 
           //print_r($pages);
-          echo "the id is". key($pages);
+          echo "the id is". key($pageID);
 
           echo ("</pre>");
 
@@ -239,8 +248,8 @@ foreach ($arrayOfPages as $keyf => $valuef) {
     				//'published' => 'true'
     			);
 
-    			//$post = $fb->post('/thememestealbot' . '/photos', $toPost, $key['access_token']);
-    			//$post = $post->getGraphNode()->asArray();
+    			$post = $fb->post('/' . $pageID . '/photos', $toPost, $key['access_token']);
+    			$post = $post->getGraphNode()->asArray();
           echo ("<pre>");
           print_r($valuef . '  ');
           print_r($currentURLtoPost);
