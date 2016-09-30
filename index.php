@@ -11,7 +11,7 @@ echo "<pre>";
 //date_default_timezone_set("Europe/London");
 echo "The time is " . date("Y-m-d H:i:s").'   '.   time();
 
-$refreshRate = 2000;
+$refreshRate = 600;
 echo "</pre>";
 header( "refresh:$refreshRate;url= index.php" );
 $currentTime = time();
