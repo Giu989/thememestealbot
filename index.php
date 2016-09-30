@@ -225,7 +225,7 @@ foreach ($arrayOfPages as $keyf => $valuef) {
           $pages = $pages->getGraphEdge()->asArray();
           echo ("<pre>");
 
-          print_r($pages);
+          //print_r($pages);
           echo "the id is". key($pages)["name"];
 
           echo ("</pre>");
